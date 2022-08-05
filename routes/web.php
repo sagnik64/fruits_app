@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('mail-test', function() {
+    Mail::send('email',[], function($message) {
+        $message->to("test@example.com", "Laravel Mail User")
+        ->subject("Laravel Mail Testing");
+    });
+    echo "Mail Sent";
+}); 
