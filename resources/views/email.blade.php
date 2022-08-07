@@ -5,8 +5,7 @@
 </head>
 <body>
  
- <h1>This is test mail Laravel</h1>
- <p>Laravel 8 send email example</p>
+ <h1>This is test mail 2</h1>
  
 </body>
 </html> 
