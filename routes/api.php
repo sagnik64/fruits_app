@@ -20,3 +20,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::apiResource("fruit",FruitsController::class);
+Route::get('fruits',[FruitsController::class,'getBySearch']);

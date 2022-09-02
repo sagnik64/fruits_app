@@ -25,6 +25,25 @@ class FruitsController extends Controller
         }
 
     }
+    public function getBySearch(Request $request) {
+    
+        $name = $request->name;
+        $color = $request->color;
+        $quantityStart = (int)($request->quantityStart);
+        $quantityEnd = (int)($request->quantityEnd);
+        
+        $fruit = Fruits::where('name','like',$name.'%')
+        ->where('color','like', $color.'%')
+        ->whereBetween('quantity',[$quantityStart, $quantityEnd])
+        ->get();
+        return [
+            'name' => $name,
+            'color' => $color,
+            'quantityStart' => $quantityStart,
+            'quantityEnd' => $quantityEnd,
+            'data' => $fruit     
+        ];
+    }
 
     /**`
      * Show the form for creating a new resource.
